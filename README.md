@@ -1,1 +1,1 @@
-# Repo to do the work of the Coursera Django course
+# Repo to do the work of the Coursera Django course.
