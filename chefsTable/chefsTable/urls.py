@@ -16,11 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-
+from . import views
 
 urlpatterns = [
-
     path("admin/", admin.site.urls),
-    path('', include('demoapp.urls')),
-    path('', include('myapp.urls')),
+    path("", include('demoapp.urls')), 
+    path('demoapp/', include('demoapp.urls')),  # Use a unique prefix for demoapp
+    path('myapp/', include('myapp.urls')),     # Use a unique prefix for myapp
+    path('home/', views.home)
+
 ]
+
+handler404 = 'chefsTable.views.handler404'
