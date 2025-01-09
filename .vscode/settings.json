@@ -1,0 +1,3 @@
+{
+    "inference.model": "codellama:7b-code-q6_K"
+}
