@@ -17,7 +17,10 @@ urlpatterns = [
     path('drinks/<str:drink_name>', views.drinks, name='drinks'),
     path('application', views.new_view, name='ApplicationForm'),
     path('', views.home_view, name='index'),  # Root URL only points to 'home_view'
-    path('home', views.form_view),
-    path('about/', views.about) #Since this is step 2, check views for step 1, and now go to check the templates folder is in settings.py
+    # path('home', views.form_view),
+    path('about/', views.about), #Since this is step 2, check views for step 1, and now go to check the templates folder is in settings.py
+    path('home/', views.home, name='home'), 
+    path('register/', views.register, name='register'),  
+    path('login/', views.login, name='login'),  
 ]
 

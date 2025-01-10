@@ -4,11 +4,11 @@ from datetime import datetime
 from .forms import DemoForm, ApplicationForm, LogForm, CustomerForm
 
 
-def home(request):
-    path = request.path
-    response = HttpResponse("This Works!")
-    # return HttpResponse(path, content_type='text/html', charset='utf-8')
-    return response
+# def home(request):
+#     path = request.path
+#     response = HttpResponse("This Works!")
+#     # return HttpResponse(path, content_type='text/html', charset='utf-8')
+#     return response
 
 
 def say_hello(request):
@@ -113,18 +113,33 @@ def cust_view(request):
     context = {'form': form}
     return render(request, 'form.html', context)
 
-def about(request):
-    about_content = {'about':'Based in Chicago, IL, Little Lemon is a small business that specializes in coffee and tea.'}
-    return render(request, "about.html", about_content) #Step 1 make the View, now go to urls.py
 
 
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Menu
 
+
+def register(request): 
+    return render(request, "register.html", {}) 
+
+def login(request): 
+    return render(request, "login.html", {}) 
+
 # Create your views here for menu.
+
+
+
+def home(request): 
+    return render(request, "partial/index.html", {}) 
+
+def about(request):
+    about_content = {'about':'Based in Chicago, IL, Little Lemon is a small business that specializes in coffee and tea.'}
+    return render(request, "partial/about.html", about_content) #Step 1 make the View, now go to urls.py
 
 def menu(request):
     menu_items = Menu.objects.all()
     items_dict = {'menu': menu_items}  # Create a dictionary to pass to the template
-    return render(request, 'menu.html', items_dict)  # Pass the dictionary to the template
+    return render(request, 'partial/menu.html', items_dict)  # Pass the dictionary to the template
+
+
